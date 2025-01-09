@@ -1,21 +1,23 @@
-import React from 'react';
-import './Video.css';
-
-const Video = ({ title, time, views, channel }) => {
-    return (
-        <div className="video-container">
-            <img
-                src="https://www.istockphoto.com/collaboration/boards/oVCcKYYj5E6LY6isl4LZzA"
-                alt="Salad"
-            />
-            <div className="video-content">
-                <div>{title}</div>
-                <div>{time}</div>
-                <div>{views}</div>
-                <div>{channel}</div>
-            </div>
+import React from "react";
+import "./Video.css";
+import { videoData } from "../../Data/videoData";
+const Video = () => {
+  return (
+    <div className="container">
+      {videoData.map((allVideos, index) => (
+        <div className="video-container" key={index}>
+          <img src="/pic1.webp" alt={allVideos.title} />
+          <div className="video-content">
+            <div>Title : {allVideos.title}</div>
+            <div>Channel : {allVideos.channel}</div>
+            <div>Time : {allVideos.time}</div>
+            <div>Verified : {allVideos.verified ? "✅" : "❌"}</div>
+            <div>Views : {allVideos.views}</div>
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default Video;
