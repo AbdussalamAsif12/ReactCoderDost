@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Video.css";
 import { videoData } from "../../Data/videoData";
 import Playbutton from "../Playbutton/Playbutton";
 const Video = () => {
+  const [addVideo, setAddVideos] = useState(videoData);
+  function newVideo() {
+    setAddVideos([
+      ...addVideo,
+      {
+        title: "State Management in React",
+        time: "1 Year Ago",
+        views: "300k",
+        channel: "Frontend Mentor",
+        verified: true,
+      },
+    ]);
+  }
   return (
     <>
-      <div onClick={()=>console.log("Hello parent app")}>
+      <div>
+        <button onClick={newVideo}>Add Video</button>
         <div className="container">
-          {videoData.map((allVideos, index) => (
+          {addVideo.map((allVideos, index) => (
             <div className="video-container" key={index}>
               <img src="/pic1.webp" alt={allVideos.title} />
               <div className="video-content">

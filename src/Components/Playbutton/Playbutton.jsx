@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Playbutton.css";
 const Playbutton = ({ children, onplay, onpause }) => {
-  let playing = false;
+  const [playing,setPlaying] = useState("")
   function HandleClick(e) {
     // console.log(e);
     e.stopPropagation()
@@ -11,7 +11,7 @@ const Playbutton = ({ children, onplay, onpause }) => {
       onplay();
     }
 
-    playing = !playing;
+    setPlaying(!playing);
   }
   return (
     <>
